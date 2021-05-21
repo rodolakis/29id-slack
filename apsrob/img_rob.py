@@ -1,11 +1,11 @@
-
 import os
-from pathlib import Path
+import pathlib
 from slack_bolt import App
 from dotenv import load_dotenv
+import pv
 
 # Set bot token and signing secret as environment values
-env_path = Path('.') / '.env'
+env_path = os.path.join(str(pathlib.Path.home()), '.env')
 load_dotenv(dotenv_path=env_path)
 
 # Initializes your app with your bot token and signing secret
@@ -28,23 +28,27 @@ def handle_message_hello(message, say):
         text=f"Hey there <@{message['user']}>!",
     )
 
-# Listens to incoming messages that contain "hello"
-@app.message("current")
-def handle_message_current(body, say, logger):
-    logger.info(body)
-    say('curent is 100 mA')   
-
 @app.message("user")
 def handle_message_user(body, say, logger):
     logger.info(body)
-    say('Today user is')
+    s_pvs = slack_pvs("2bma:TomoScan:", "2bmbSP1:HDF1:")
+    text = s_pvs['user_name'].get()
+    # s_pvs['user_last_name'].get()
+    # s_pvs['user_affiliation'].get()
+    # s_pvs['user_email'].get()
+    # s_pvs['user_badge'].get()
+
+    # s_pvs['proposal_number'].get()
+    # s_pvs['proposal_title'].get()
+
+    # s_pvs['FPNumCaptured'].get()
+    # s_pvs['FPFullFileName'].get() 
+    say(text)
 
 @app.event("message")
 def handle_message_events(body, say, logger):
     logger.info(body)
     say('Do not know what to do')
-
-
 
 
 # Start your app
