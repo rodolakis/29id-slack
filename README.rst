@@ -1,5 +1,5 @@
-Slack bolt for IMG
-==================
+APS Slack bolt
+==============
 
 
 Read the `Getting started with Bolt for Python <https://slack.dev/bolt-python/tutorial/getting-started>`_  guide and `create a Slack app <https://api.slack.com/apps/new>`_ 
