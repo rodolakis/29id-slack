@@ -26,7 +26,7 @@ and selecting the following:
     :width: 50%
     :align: center
 
-Once this is done, select the **Install to Workspae** to obtain obtain the **Bot User OAuth Token** = xoxb-xxxxxx-xxxxxxx-xxxxxxxxxxxx
+Once this is done, select the **Install to Workspace** to obtain the **Bot User OAuth Token** = xoxb-xxxxxx-xxxxxxx-xxxxxxxxxxxx
 
 Finally you need invite the Slack app to a specific slack channel:
 
