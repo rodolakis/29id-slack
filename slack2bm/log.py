@@ -1,5 +1,5 @@
 '''
-    tomoscan custom logger
+    slack custom logger
     
 '''
 import logging
