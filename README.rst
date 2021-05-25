@@ -42,9 +42,11 @@ also the slack2bm console logger will report the same:
     :width: 50%
     :align: center
 
+Installation
+============
 
 Pre-requisites
-==============
+--------------
 
 Read the `Getting started with Bolt for Python <https://slack.dev/bolt-python/tutorial/getting-started>`_  guide and `create a Slack app <https://api.slack.com/apps/new>`_ 
 
@@ -94,7 +96,6 @@ Add features and functionalities (enable all those that are green)
 .. image:: docs/source/img/event_subscription.png
     :width: 50%
     :align: center
-
 
 Scopes
 ------
