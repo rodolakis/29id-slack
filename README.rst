@@ -1,6 +1,47 @@
-=============
-APS Slack bot
-=============
+==============
+2-BM Slack bot
+==============
+
+Usage
+=====
+
+::
+
+    $ slack2bm
+      Bolt app is running!
+
+then go to the autorized slack channel and type::
+
+	help
+
+.. image:: docs/source/img/help.png
+    :width: 50%
+    :align: center
+
+and select any of the available options:
+
+.. image:: docs/source/img/ring.png
+    :width: 50%
+    :align: center
+
+.. image:: docs/source/img/user.png
+    :width: 50%
+    :align: center
+
+.. image:: docs/source/img/detector.png
+    :width: 50%
+    :align: center
+
+If an EPICS PV is not available slack with reply with::
+
+	PV 2bmb:TomoScan:RotationStart" is not connected
+
+also the slack2bm console logger will report the same:
+
+.. image:: docs/source/img/logs.png
+    :width: 50%
+    :align: center
+
 
 Pre-requisites
 ==============
@@ -98,47 +139,6 @@ To install slack2bm, run::
     $ python setup.py install
 
 .. warning:: Make sure your python installation is in a location set by #!/usr/bin/env python, if not please edit the first line of the bin/dmagic file to match yours.
-
-Usage
-=====
-
-::
-
-    $ slack2bm
-      Bolt app is running!
-
-then go to the autorized slack channel and type::
-
-	help
-
-.. image:: docs/source/img/help.png
-    :width: 50%
-    :align: center
-
-and select any of the available options:
-
-.. image:: docs/source/img/ring.png
-    :width: 50%
-    :align: center
-
-.. image:: docs/source/img/user.png
-    :width: 50%
-    :align: center
-
-.. image:: docs/source/img/detector.png
-    :width: 50%
-    :align: center
-
-If an EPICS PV is not available slack with reply with::
-
-	PV 2bmb:TomoScan:RotationStart" is not connected
-
-also the slack2bm console logger will report the same:
-
-.. image:: docs/source/img/logs.png
-    :width: 50%
-    :align: center
-
 
 Dependencies
 ============
