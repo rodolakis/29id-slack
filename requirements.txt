@@ -1,5 +1,3 @@
 python-dotenv
 slack-bolt
-slackclient
-slackeventsapi
-flask
+pyepics
