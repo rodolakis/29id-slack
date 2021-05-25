@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+.. module:: metah5.py
+   :platform: Unix
+   :synopsis: Reads the meta data of a tomographic hdf5 file and generates a table (rst) compatible with sphynx/readthedocs.
+
+"""
+
 import os
 import time
 import pathlib
@@ -5,8 +15,9 @@ from dotenv import load_dotenv
 from datetime import datetime
 from slack_bolt import App 
 from slack_bolt.adapter.socket_mode import SocketModeHandler 
-import pv
-import log
+
+from slack2bm import pv
+from slack2bm import log
 
 # Set bot tokens as environment values
 env_path = os.path.join(str(pathlib.Path.home()), '.slackenv')
@@ -27,18 +38,7 @@ def reply(payload, say, client):
     chan = client.conversations_info(channel=payload["channel"])["channel"]["name"]
 
     pvs = {}
-    if chan == "2-bm": 
-        if 'status' in text: 
-            _, slack_message = pv.check_pvs_connected(pv_user)
-            print (slack_message)
-            say("status: ....")
-        elif 'scan' in text: 
-            say("scan: ....")
-        elif 'user' in text: 
-            say("user: ...") 
-        elif 'help' in text: 
-            say("help: ...") 
-    elif chan == "automated": 
+    if chan == "automated": 
         f_dict = {'ring': pv.epics_ring, 'eps': pv.epics_eps, 'energy': pv.epics_energy, 
                    'optics': pv.epics_optics, 'sample': pv.epics_sample, 'user': pv.epics_user, 
                    'data': pv.epics_data, 'scan': pv.epics_scan, 'file': pv.epics_file, 

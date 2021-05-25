@@ -1,5 +1,5 @@
 from epics import PV
-import log
+from slack2bm import log
 
 
 def epics_ring(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
