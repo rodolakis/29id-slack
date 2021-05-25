@@ -1,7 +1,8 @@
 from epics import PV
 import log
 
-def epics_ring():
+
+def epics_ring(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 
@@ -12,7 +13,7 @@ def epics_ring():
 
     return pvs
 
-def epics_eps(eps_prefix):
+def epics_eps(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 
@@ -34,7 +35,7 @@ def epics_eps(eps_prefix):
 
     return pvs
 
-def epics_energy(tomoscan_prefix):
+def epics_energy(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 
@@ -45,7 +46,7 @@ def epics_energy(tomoscan_prefix):
 
     return pvs
 
-def epics_optics(tomoscan_prefix):
+def epics_optics(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 
@@ -59,7 +60,7 @@ def epics_optics(tomoscan_prefix):
 
     return pvs
     
-def epics_sample(tomoscan_prefix):
+def epics_sample(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 
@@ -71,7 +72,7 @@ def epics_sample(tomoscan_prefix):
 
     return pvs
     
-def epics_user(tomoscan_prefix):
+def epics_user(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 
@@ -88,7 +89,7 @@ def epics_user(tomoscan_prefix):
 
     return pvs
     
-def epics_data(tomoscan_prefix):
+def epics_data(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 
@@ -101,7 +102,7 @@ def epics_data(tomoscan_prefix):
 
     return pvs
     
-def epics_scan(tomoscan_prefix):
+def epics_scan(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 
@@ -149,7 +150,7 @@ def epics_scan(tomoscan_prefix):
 
     return pvs
     
-def epics_file(tomoscan_prefix, fp_prefix):
+def epics_file(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 
@@ -172,7 +173,7 @@ def epics_file(tomoscan_prefix, fp_prefix):
 
     return pvs
     
-def epics_detector(tomoscan_prefix, ad_prefix):
+def epics_detector(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
 
     pvs = {}
 

@@ -39,36 +39,19 @@ def reply(payload, say, client):
         elif 'help' in text: 
             say("help: ...") 
     elif chan == "automated": 
-        if 'ring' in text: 
-            pvs = pv.epics_ring()
-        elif 'eps' in text: 
-            pvs = pv.epics_eps('2bm:')
-        elif 'energy' in text: 
-            pvs = pv.epics_energy("2bmb:TomoScan:")
-        elif 'optics' in text: 
-            pvs = pv.epics_optics("2bmb:TomoScan:")
-        elif 'sample' in text: 
-            pvs = pv.epics_sample("2bmb:TomoScan:")
-        elif 'user' in text: 
-            pvs = pv.epics_user("2bmb:TomoScan:")
-        elif 'data' in text: 
-            pvs = pv.epics_data("2bmb:TomoScan:")
-        elif 'scan' in text: 
-            pvs = pv.epics_scan("2bmb:TomoScan:")
-        elif 'file' in text: 
-            pvs = pv.epics_file("2bmb:TomoScan:", '2bmbPG1:HDF1:')
-        elif 'detector' in text: 
-            pvs = pv.epics_detector("2bmb:TomoScan:", "2bmbPG1:")
-        elif 'help' in text: 
-            say("help: ...") 
-
-        if pvs:
-            # Wait 1 second for all PVs to connect
+        f_dict = {'ring': pv.epics_ring, 'eps': pv.epics_eps, 'energy': pv.epics_energy, 
+                   'optics': pv.epics_optics, 'sample': pv.epics_sample, 'user': pv.epics_user, 
+                   'data': pv.epics_data, 'scan': pv.epics_scan, 'file': pv.epics_file, 
+                   'detector': pv.epics_detector}
+        if text in f_dict:
+            pvs = f_dict[text]('2bm:', '2bmb:TomoScan:', '2bmbPG1:', '2bmbPG1:HDF1:')
             time.sleep(1)
             _, slack_messages = pv.check_pvs_connected(pvs)
             for message in slack_messages:
                 say(message)
-
+        elif text == 'help':
+            for text in f_dict:
+                say(text)
     else:
         if text_match(text, "hello"):
             say("Greetings *{0}*!".format(user)) 
