@@ -7,9 +7,15 @@ def epics_ring(eps_prefix, tomoscan_prefix, ad_prefix, fp_prefix):
     pvs = {}
 
     # Ring
-    pvs['Current']                  = PV('S:SRcurrentAI')
-    pvs['ShutterStatus']            = PV('PA:02BM:STA_A_FES_OPEN_PL')
-    pvs['BeamReady']                = PV('ACIS:ShutterPermit')
+    pvs['s_current']                = PV('S:SRcurrentAI')
+    pvs['shutter_status']           = PV('PA:02BM:STA_A_FES_OPEN_PL')
+    pvs['acis_shutter_permit']      = PV('ACIS:ShutterPermit')
+    pvs['s_desired_mode']           = PV('S:DesiredMode')
+    pvs['ops_message1']             = PV('OPS:message5')
+    pvs['ops_message2']             = PV('OPS:message5')
+    pvs['ops_message3']             = PV('OPS:message5')
+    pvs['ops_message4']             = PV('OPS:message5')
+    pvs['ops_message5']             = PV('OPS:message5')
 
     return pvs
 
