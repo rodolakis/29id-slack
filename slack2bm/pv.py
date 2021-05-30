@@ -1,3 +1,4 @@
+import time
 from epics import PV
 from slack2bm import log
 
@@ -220,7 +221,6 @@ def check_pvs_connected(epics_pvs):
         else:
             log.info('%s: %s' % (key, epics_pvs[key].get(as_string=True)))
             slack_messages += ('\n' + key + ': ' + epics_pvs[key].get(as_string=True), )
-
 
     return all_connected, slack_messages
 
