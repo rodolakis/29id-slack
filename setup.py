@@ -12,7 +12,7 @@ setup(
     url='https://github.com/xray-imaging/slack2bm',
     packages=find_packages(),
     include_package_data = True,
-    scripts=['bin/slack2bm', 'bin/slackCallback'],
+    scripts=['bin/slack2bm'],
     description='cli to run a slack rob at 2-bm',
     zip_safe=False,
 )
