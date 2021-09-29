@@ -44,7 +44,7 @@ def reply(payload, say, client):
                    'data': pv.epics_data, 'scan': pv.epics_scan, 'file': pv.epics_file, 
                    'detector': pv.epics_detector}
         if text in f_dict:
-            pvs = f_dict[text]('2bm:', '2bmb:TomoScan:', '2bmbPG1:', '2bmbPG1:HDF1:')
+            pvs = f_dict[text]('2bm:', '2bma:TomoScan:', '2bmbSP1:', '2bmbSP1:HDF1:')
             time.sleep(1)
             _, slack_messages = pv.check_pvs_connected(pvs)
             for message in slack_messages:
@@ -56,8 +56,11 @@ def reply(payload, say, client):
         if text_match(text, "hello"):
             say("Greetings *{0}*!".format(user)) 
 
+def start_robot():
 
-if __name__ == "__main__": 
+    SocketModeHandler(app, app_token).start() 
+
+def main():
     # set logs directory
     home = os.path.expanduser("~")
     logs_home = home + '/logs/'
@@ -68,4 +71,7 @@ if __name__ == "__main__":
     lfname = logs_home + 'slack_' + datetime.strftime(datetime.now(), "%Y-%m-%d_%H:%M:%S") + '.log'
     log.setup_custom_logger(lfname)
 
-    SocketModeHandler(app, app_token).start() 
+    start_robot()
+
+if __name__ == '__main__':
+    main()
