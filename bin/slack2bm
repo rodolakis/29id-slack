@@ -38,7 +38,7 @@ def reply(payload, say, client):
     chan = client.conversations_info(channel=payload["channel"])["channel"]["name"]
 
     pvs = {}
-    if chan == "automated": 
+    if chan == "auto_2bm": 
         f_dict = {'ring': pv.epics_ring, 'eps': pv.epics_eps, 'energy': pv.epics_energy, 
                    'optics': pv.epics_optics, 'sample': pv.epics_sample, 'user': pv.epics_user, 
                    'data': pv.epics_data, 'scan': pv.epics_scan, 'file': pv.epics_file, 
