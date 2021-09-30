@@ -39,7 +39,7 @@ If an EPICS PV is not available slack with reply with::
 also the slackaps console logger will report the same:
 
 .. image:: docs/source/img/logs.png
-    :width: 30%
+    :width: 45%
     :align: center
 
 Installation
@@ -51,7 +51,7 @@ Pre-requisites
 Read the `Getting started with Bolt for Python <https://slack.dev/bolt-python/tutorial/getting-started>`_  guide and `create a Slack app <https://api.slack.com/apps/new>`_ 
 
 .. image:: docs/source/img/create_app.png
-    :width: 30%
+    :width: 45%
     :align: center
 
 Select **From scratch** and follow the on-screen instructions.
@@ -62,11 +62,11 @@ Mode
 Select **Socket Mode** 
 
 .. image:: docs/source/img/socket_mode_01.png
-    :width: 20%
+    :width: 15%
     :align: center
 
 .. image:: docs/source/img/socket_mode_02.png
-    :width: 40%
+    :width: 45%
     :align: center
 
 - Enable Socket Mode 
@@ -94,7 +94,7 @@ Add features and functionalities (enable all those that are green)
 - Event subscription; Subscribe to bot events with “Add Bot User Event”:
 
 .. image:: docs/source/img/event_subscription.png
-    :width: 30%
+    :width: 45%
     :align: center
 
 Scopes
@@ -109,7 +109,7 @@ Once the Slack app is created you need to set the Slack app capabilities and per
 and selecting the following:
 
 .. image:: docs/source/img/scopes.png
-    :width: 40%
+    :width: 45%
     :align: center
 
 Once this is done, select the **Install to Workspace** to obtain the **Bot User OAuth Token** and copy it in::
@@ -121,7 +121,7 @@ as BOT_TOKEN=xoxb-........
 Finally you need invite the Slack app to a specific slack channel:
 
 .. image:: docs/source/img/invite.png
-    :width: 70%
+    :width: 60%
     :align: center
 
 Installing from source
