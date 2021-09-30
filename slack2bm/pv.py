@@ -214,13 +214,15 @@ def check_pvs_connected(epics_pvs):
     slack_messages = ()
     all_connected = True
     for key in epics_pvs:
-        if not epics_pvs[key].connected:
-            log.error('PV %s is not connected', epics_pvs[key].pvname)
-            slack_messages += ('\nPV ' + epics_pvs[key].pvname + ' is not connected', )
+        pv = PV(epics_pvs[key])
+        time.sleep(1)
+        if not pv.connected:
+            log.error('PV %s is not connected', pv.pvname)
+            slack_messages += ('\nPV ' + pv.pvname + ' is not connected', )
             all_connected = False
         else:
-            log.info('%s: %s' % (key, epics_pvs[key].get(as_string=True)))
-            slack_messages += ('\n' + key + ': ' + epics_pvs[key].get(as_string=True), )
+            log.info('%s: %s' % (key, pv.get(as_string=True)))
+            slack_messages += ('\n' + key + ': ' + pv.get(as_string=True), )
 
     return all_connected, slack_messages
 

@@ -11,14 +11,20 @@
 import os
 import time
 import pathlib
+import json
+
 from dotenv import load_dotenv
 from datetime import datetime
 from slack_bolt import App 
 from slack_bolt.adapter.socket_mode import SocketModeHandler 
+from pathlib import Path
 
 from slack2bm import pv
 from slack2bm import log
 
+data_path = Path(__file__).parent / '../../slack2bm/data'
+
+print(data_path)
 # Set bot tokens as environment values
 env_path = os.path.join(str(pathlib.Path.home()), '.slackenv')
 load_dotenv(dotenv_path=env_path)
@@ -37,14 +43,13 @@ def reply(payload, say, client):
     user = client.users_info(user=payload["user"])["user"]["real_name"] 
     chan = client.conversations_info(channel=payload["channel"])["channel"]["name"]
 
+    # Load PV lookup table from the JSON file
+    with open(os.path.join(data_path, 'pv.json')) as json_file:
+        f_lookup = json.load(json_file)
     pvs = {}
     if chan == "auto_2bm": 
-        f_dict = {'ring': pv.epics_ring, 'eps': pv.epics_eps, 'energy': pv.epics_energy, 
-                   'optics': pv.epics_optics, 'sample': pv.epics_sample, 'user': pv.epics_user, 
-                   'data': pv.epics_data, 'scan': pv.epics_scan, 'file': pv.epics_file, 
-                   'detector': pv.epics_detector}
-        if text in f_dict:
-            pvs = f_dict[text]('2bm:', '2bma:TomoScan:', '2bmbSP1:', '2bmbSP1:HDF1:')
+        if text in f_lookup:
+            pvs = f_lookup[text]
             time.sleep(1)
             _, slack_messages = pv.check_pvs_connected(pvs)
             for message in slack_messages:
