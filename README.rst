@@ -62,11 +62,11 @@ Mode
 Select **Socket Mode** 
 
 .. image:: docs/source/img/socket_mode_01.png
-    :width: 30%
+    :width: 20%
     :align: center
 
 .. image:: docs/source/img/socket_mode_02.png
-    :width: 30%
+    :width: 40%
     :align: center
 
 - Enable Socket Mode 
@@ -86,7 +86,7 @@ Add features and functionalities (enable all those that are green)
 
 
 .. image:: docs/source/img/features_functionalities.png
-    :width: 30%
+    :width: 40%
     :align: center
 
 - Incoming webhooks (this allows your bot to post messages and files in the chat; note that the green check mark on the screen shot above does not appear right away, but at some point later in the process)
@@ -103,13 +103,13 @@ Scopes
 Once the Slack app is created you need to set the Slack app capabilities and permissions. These are called `scopes <https://api.slack.com/scopes>`_ and can be set accessing the Bot Token Scopes under the  **OAuth&Permissions** tab at:
 
 .. image:: docs/source/img/features.png
-    :width: 30%
+    :width: 15%
     :align: center
 
 and selecting the following:
 
 .. image:: docs/source/img/scopes.png
-    :width: 30%
+    :width: 40%
     :align: center
 
 Once this is done, select the **Install to Workspace** to obtain the **Bot User OAuth Token** and copy it in::
