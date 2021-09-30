@@ -1,13 +1,13 @@
-==============
-2-BM Slack bot
-==============
+=============
+APS Slack bot
+=============
 
 Usage
 =====
 
 ::
 
-    $ slack2bm
+    $ slackaps
       Bolt app is running!
 
 then go to the autorized slack channel and type::
@@ -36,7 +36,7 @@ If an EPICS PV is not available slack with reply with::
 
 	PV 2bmb:TomoScan:RotationStart" is not connected
 
-also the slack2bm console logger will report the same:
+also the slackaps console logger will report the same:
 
 .. image:: docs/source/img/logs.png
     :width: 50%
@@ -128,18 +128,39 @@ Installing from source
 ======================
 
 In a prepared virtualenv or as root for system-wide installation clone the 
-`slack2bm <https://github.com/xray-imaging/2bm-slack.git>`_ from `GitHub <https://github.com>`_ repository
+`slackaps <https://github.com/xray-imaging/slack-aps.git>`_ from `GitHub <https://github.com>`_ repository
 
 ::
 
-    $ git clone https://github.com/xray-imaging/2bm-slack.git slack2bm
+    $ git clone https://github.com/xray-imaging/slack-aps.git slack-aps
 
-To install slack2bm, run::
 
-    $ cd slack2bm
+
+Beamline customization
+----------------------
+
+Before installing slack-aps, customize for a specific beamline editing the pv dictionary contained in pv.json file::
+
+    $ cd slack-aps/slackaps/data/
+    $ more pv.json
+
+This file is formatted as:
+
++---------------------+----------------------+---------------------------------------------------------------------------+
+|slack query keyword  | {slack response label 1 : "epics PV name 1" ,  slack response label 2 : "epics PV name 2", etc.} | 
++---------------------+----------------------+---------------------------------------------------------------------------+
+
+e.g.::
+
+    {"ring": {"s_current": "S:SRcurrentAI", "shutter_status": "PA:02BM:STA_A_FES_OPEN_PL", "acis_shutter_permit": "ACIS:ShutterPermit", "s_desired_mode": "S:DesiredMode"},
+    {"energy": {"energy": "2bma:TomoScan:Energy", "energy_mode": "2bma:TomoScan:EnergyMode", "filters": "2bma:TomoScan:Filters"}.
+    ....
+
+
+To install slackaps, run::
+
+    $ cd slack-aps
     $ python setup.py install
-
-.. warning:: Make sure your python installation is in a location set by #!/usr/bin/env python, if not please edit the first line of the bin/dmagic file to match yours.
 
 Dependencies
 ============
