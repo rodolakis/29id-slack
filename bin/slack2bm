@@ -55,7 +55,7 @@ def reply(payload, say, client):
             for message in slack_messages:
                 say(message)
         elif text == 'help':
-            for text in f_dict:
+            for text in f_lookup:
                 say(text)
     else:
         if text_match(text, "hello"):
