@@ -1,6 +1,6 @@
 import time
 from epics import PV
-from slack2bm import log
+from slackaps import log
 
 def check_pvs_connected(epics_pvs):
     """Checks whether all EPICS PVs are connected.

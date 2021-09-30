@@ -1,13 +1,13 @@
-==============
-2-BM Slack bot
-==============
+=============
+APS Slack bot
+=============
 
 Usage
 =====
 
 ::
 
-    $ slack2bm
+    $ slackaps
       Bolt app is running!
 
 then go to the autorized slack channel and type::
@@ -36,7 +36,7 @@ If an EPICS PV is not available slack with reply with::
 
 	PV 2bmb:TomoScan:RotationStart" is not connected
 
-also the slack2bm console logger will report the same:
+also the slackaps console logger will report the same:
 
 .. image:: docs/source/img/logs.png
     :width: 50%
@@ -128,15 +128,15 @@ Installing from source
 ======================
 
 In a prepared virtualenv or as root for system-wide installation clone the 
-`slack2bm <https://github.com/xray-imaging/2bm-slack.git>`_ from `GitHub <https://github.com>`_ repository
+`slackaps <https://github.com/xray-imaging/2bm-slack.git>`_ from `GitHub <https://github.com>`_ repository
 
 ::
 
-    $ git clone https://github.com/xray-imaging/2bm-slack.git slack2bm
+    $ git clone https://github.com/xray-imaging/2bm-slack.git slackaps
 
-To install slack2bm, run::
+To install slackaps, run::
 
-    $ cd slack2bm
+    $ cd slackaps
     $ python setup.py install
 
 .. warning:: Make sure your python installation is in a location set by #!/usr/bin/env python, if not please edit the first line of the bin/dmagic file to match yours.
