@@ -57,7 +57,7 @@ def reply(payload, say, client):
             for text in f_lookup:
                 say(text)
         else:
-            say('Type help for all aptions')
+            say('Type help for all options')
 
     else:
         if text_match(text, "hello"):
