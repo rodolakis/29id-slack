@@ -33,13 +33,11 @@ app_token = os.environ.get("APP_TOKEN")
 
 app = App(token = bot_token)
 
-
 def text_match(txt_src, txt_tgt): 
     if txt_tgt[:len(txt_src)].lower()==txt_src.lower(): 
         return True 
     else: 
         return False
-
 
 @app.event("message") 
 def reply(payload, say, client): 
