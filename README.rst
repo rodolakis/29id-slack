@@ -2,6 +2,8 @@
 APS Slack bot
 =============
 
+Adapted from https://github.com/xray-imaging/slack-aps
+
 Usage
 =====
 
