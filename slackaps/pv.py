@@ -25,7 +25,7 @@ def check_pvs_connected(epics_pvs):
             slack_messages += ('\nPV ' + pv.pvname + ' is not connected', )
             all_connected = False
         elif key == 'mirror':
-            lack_messages += ('\n' + key + ': ' + MIR[pv.get() - 1],)
+            slack_messages += ('\n' + key + ': ' + MIR[pv.get() - 1],)
             log.info('%s: %s' % (key, MIR[pv.get() - 1]))
         elif key == 'grating':
             slack_messages += ('\n' + key + ': ' + GRT[pv.get() - 1],)
