@@ -7,8 +7,25 @@ Usage
 
 ::
 
-    $ slackaps
+    $ slack29id.sh
       Bolt app is running!
+      
+with ~/bin/slack29id.sh:
+::
+    $ #!/bin/bash
+    $ source /APSshare/miniconda/x86_64/etc/profile.d/conda.sh
+    $ conda activate slackenv
+    $ ~/.conda/envs/slackenv/bin/slackaps
+	
+to start in screen session:
+::
+
+    $ screen -dmS SLACKBOT slackaps.sh
+    $ screen -list
+        There is a screen on:
+       1759231.SLACKBOT (Detached)
+        1 Socket in /run/screen/S-29iduser.
+
 
 then go to the autorized slack channel and type::
 
@@ -161,7 +178,15 @@ To install slackaps, run::
 
     $ cd slack-aps
     $ python setup.py install
+    
+To (re)install slack-aps, run::
 
+    $ conda activate slackenv
+    $ cd ~/src/slack-aps
+    $ ~/.conda/envs/slackenv/bin/python setup.py install
+    
+    
+    
 Dependencies
 ============
 
