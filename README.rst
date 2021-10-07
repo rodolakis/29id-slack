@@ -7,10 +7,10 @@ Usage
 
 ::
 
-    $ slack29id.sh
+    $ slackaps.sh
       Bolt app is running!
       
-with ~/bin/slack29id.sh:
+with ~/bin/slackaps.sh:
 ::
     $ #!/bin/bash
     $ source /APSshare/miniconda/x86_64/etc/profile.d/conda.sh
