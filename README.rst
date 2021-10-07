@@ -158,7 +158,7 @@ Beamline customization
 
 Before installing slack-aps, customize for a specific beamline editing the pv dictionary contained in pv.json file::
 
-    $ cd slack-aps/slackaps/data/
+    $ cd slackaps/slackaps/data/
     $ more pv.json
 
 This file is formatted as:
@@ -176,13 +176,13 @@ e.g.::
 
 To install slackaps, run::
 
-    $ cd slack-aps
+    $ cd slackaps
     $ python setup.py install
     
-To (re)install slack-aps, run::
+To (re)install slackaps, run::
 
     $ conda activate slackenv
-    $ cd ~/src/slack-aps
+    $ cd /slackaps
     $ ~/.conda/envs/slackenv/bin/python setup.py install
     
     
