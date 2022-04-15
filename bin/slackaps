@@ -13,6 +13,7 @@ import time
 import pathlib
 import json
 
+import matplotlib.image as mpimg
 from dotenv import load_dotenv
 from datetime import datetime
 from slack_bolt import App 
@@ -62,6 +63,13 @@ def reply(payload, say, client):
         elif text == 'help':
             for text in f_lookup:
                 say(text)
+            say('latest')
+            say('hello')
+        elif text_match(text, "latest".lower()): 
+            path= '/home/beams/29IDUSER/Documents/User_Folders/lastfigure.png'
+            img = path
+            image = mpimg.imread(img)
+            client.files_upload(channels="#automated",file=img) 
         else:
             say('Type help for all options')
 
